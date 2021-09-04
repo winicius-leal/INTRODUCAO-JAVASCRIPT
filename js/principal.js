@@ -6,31 +6,41 @@ titulo.textContent = "WM SUPLEMENTOS";
 
 var TrPrimeiroPaciente = document.querySelector("#primary-row");
 
-var TdPeso = TrPrimeiroPaciente.querySelector(".info-peso");
-var peso = TdPeso.textContent;
+var pacientes = document.querySelectorAll(".paciente");
 
-var TdAltura = TrPrimeiroPaciente.querySelector(".info-altura");
-var altura = TdAltura.textContent;
+for(i=0; i<=pacientes.length; i++){
+    
+    paciente = pacientes[i];
 
-var imc = peso / (altura * altura);
+    var TdPeso = paciente.querySelector(".info-peso");
+    var peso = TdPeso.textContent;
 
-var TdImc = TrPrimeiroPaciente.querySelector(".info-imc");
+    var TdAltura = paciente.querySelector(".info-altura");
+    var altura = TdAltura.textContent;
 
-var pesoValido = true;
-var alturaValida = true;
+    var imc = peso / (altura * altura);
 
-if(peso <0 || peso >300){
-    pesoValido = false;
+    var TdImc = paciente.querySelector(".info-imc");
+
+    var pesoValido = true;
+    var alturaValida = true;
+
+    if(peso <0 || peso >300){
+        pesoValido = false;
+        TdAltura.textContent = "Altura Invalida";
+    }
+    if(altura <0 || altura >3){
+        pesoValido = false;
+        TdAltura.textContent = "Peso Invalido";
+    }
+
+    if(pesoValido && alturaValida){
+        TdImc.textContent = imc.toFixed(2); //para imprimir apenas duas casas de cimais
+    }else{
+        TdImc.textContent = "Altura e/ou peso inválidos!";
+    }
 }
-if(altura <0 || altura >3){
-    pesoValido = false;
-}
 
-if(pesoValido && alturaValida){
-    TdImc.textContent = imc;
-}else{
-    TdImc.textContent = "";
-}
 
 
 
