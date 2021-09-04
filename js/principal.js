@@ -28,10 +28,12 @@ for(i=0; i<=pacientes.length; i++){
     if(peso <0 || peso >300){
         pesoValido = false;
         TdAltura.textContent = "Altura Invalida";
+        paciente.classList.add("paciente-invalido");//adiciona uma classe nova no obj 
     }
     if(altura <0 || altura >3){
         pesoValido = false;
         TdAltura.textContent = "Peso Invalido";
+        paciente.classList.add("paciente-invalido");//adiciona uma classe nova no obj
     }
 
     if(pesoValido && alturaValida){
