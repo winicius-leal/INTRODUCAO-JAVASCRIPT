@@ -15,6 +15,22 @@ var altura = TdAltura.textContent;
 var imc = peso / (altura * altura);
 
 var TdImc = TrPrimeiroPaciente.querySelector(".info-imc");
-TdImc.textContent = imc;
+
+var pesoValido = true;
+var alturaValida = true;
+
+if(peso <0 || peso >300){
+    pesoValido = false;
+}
+if(altura <0 || altura >3){
+    pesoValido = false;
+}
+
+if(pesoValido && alturaValida){
+    TdImc.textContent = imc;
+}else{
+    TdImc.textContent = "";
+}
+
 
 
