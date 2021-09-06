@@ -18,17 +18,16 @@ for(i=0; i < pacientes.length; i++){
 
     var TdImc = paciente.querySelector(".info-imc");
 
-    var pesoValido = true;
-    var alturaValida = true;
+    var pesoValido = validaPeso(peso); //true ou false
+    var alturaValida = validaAltura(altura);//true ou false
 
-    if(peso <0 || peso >300){
-        pesoValido = false;
+    if(!pesoValido){ //se nao for um peso valido
         TdPeso.textContent = "Peso Invalido";
         //adiciona uma classe nova no obj 
         paciente.classList.add("paciente-invalido");
     }
-    if(altura <0 || altura >3){
-        alturaValida = false;
+
+    if(!alturaValida){//se a altura nao for valida
         TdAltura.textContent = "Altura Invalida";
         //adiciona uma classe nova no obj 
         paciente.classList.add("paciente-invalido");
@@ -45,4 +44,21 @@ function calculaImc(peso, altura){
     var imc = peso / (altura * altura);
     //toFIxed para imprimir apenas duas casas de cimais
     return imc.toFixed(2);
+}
+
+function validaPeso(peso){
+    if(peso>=0 && peso <1000){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+function validaAltura(altura){
+    if(altura>=0 && altura <3){
+        return true;
+    }else{
+        return false;
+    }
 }
