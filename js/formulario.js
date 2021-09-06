@@ -20,13 +20,8 @@ buttonAdicionar.addEventListener("click", function (event){
         return;
     }
 
-    var pacienteTr = montaTr(paciente);
-    
-    //busca o obj da tabela 
-    var tabela = document.querySelector("#tabela-pacientes");
+    adicionaPacienteNaTabela(paciente);
 
-    //cria um elemnto filho na tabela com os dados criados
-    tabela.appendChild(pacienteTr);
 
     //limpa os campos do form
     form.reset(); 
@@ -81,4 +76,10 @@ function validaPaciente(paciente) {
     } else {
         return false;
     }
+}
+
+function adicionaPacienteNaTabela(paciente) {
+    var pacienteTr = montaTr(paciente);
+    var tabela = document.querySelector("#tabela-pacientes");
+    tabela.appendChild(pacienteTr);
 }
